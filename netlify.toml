@@ -1,17 +1,12 @@
 [build]
-  # Add this command to silence the mise warning
-  command = "mise settings set python.compile false && pip install -r functions/get-video-link/requirements.txt" 
-  functions = "functions"
-# ... rest of the file
-  # Dependencies install karne ki command
+  # We specify the build command which will install dependencies using the default Python version
   command = "pip install -r functions/get-video-link/requirements.txt"
+  functions = "functions"
   
 [functions]
-  # Functions ka folder structure
-
   directory = "functions"
-# Yahi woh setting hai jo initializing ko control karti hai
+
+# Netlify ko force karna ki woh default environment use kare, mise ko ignore kare
 [functions."*"]
-  # Hum Python 3.8 specify kar rahe hain
   python_runtime = "python3.10.12"
 
