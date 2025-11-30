@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Download - Please Wait...</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        #timer { font-size: 2em; color: #d9534f; margin: 10px 0; }
+        .ad-space { background-color: #e0e0e0; border: 1px dashed #aaa; height: 250px; margin: 20px 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Loading Download Link...</h1>
+        <p>Please wait while we prepare your high-quality video link. (7 seconds)</p>
+
+        <div class="ad-space">
+            **⬅️ YAHAN PAR GOOGLE ADSENSE YA APNE AD NETWORK KA CODE DAALEIN ➡️**
+        </div>
+        <p>Redirecting in <span id="timer">7</span> seconds...</p>
+    </div>
+
+    <script>
+        var timeLeft = 7;
+        var timer = document.getElementById('timer');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const encodedYoutubeLink = urlParams.get('ytlink');
+
+        if (!encodedYoutubeLink) {
+            document.querySelector('.container').innerHTML = "❌ Error: Missing YouTube link. Please use the Telegram Bot.";
+        }
+
+        var countdown = setInterval(function() {
+            timeLeft--;
+            timer.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timer.textContent = 'Processing...';
+                
+                // Redirect to the Function (Backend)
+                window.location.href = '/.netlify/functions/get-video-link?ytlink=' + encodedYoutubeLink;
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

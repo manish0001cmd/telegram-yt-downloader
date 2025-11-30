@@ -1,0 +1,9 @@
+[build]
+  # Functions directory jahan python libraries install hongi
+  functions = "functions"
+  # Dependencies install karne ki command
+  command = "pip install -r functions/get-video-link/requirements.txt"
+  
+[functions]
+  # Functions ka folder structure
+  directory = "functions"
