@@ -6,4 +6,9 @@
   
 [functions]
   # Functions ka folder structure
+
   directory = "functions"
+# Yahi woh setting hai jo initializing ko control karti hai
+[functions."*"]
+  # Hum Python 3.8 specify kar rahe hain
+  python_runtime = "python3.10.12"
