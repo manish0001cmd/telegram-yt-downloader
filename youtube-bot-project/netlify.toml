@@ -1,4 +1,0 @@
-[build]
-  # This command is needed to tell Netlify to install Python dependencies
-  command = "pip install -r functions/get-video-link/requirements.txt"
-  functions = "functions"  # This tells Netlify where your function files are
